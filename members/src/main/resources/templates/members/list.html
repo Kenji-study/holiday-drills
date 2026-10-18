@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/members}" method="get">
+        <input type="text" name="keyword" th:value="${keyword}">
+        <button type="submit">検索</button>
+    </form>
+    <p th:if="${members.isEmpty()}">該当する会員はいません</p>
+    <table th:unless="${members.isEmpty()}">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>年齢</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="m : ${members}">
+                <td th:text="${m.id}"></td>
+                <td><a th:href="@{/members/{id}(id=${m.id})}" th:text="${m.name}"></a></td>
+                <td th:text="${m.age}"></td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
