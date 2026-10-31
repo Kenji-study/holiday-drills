@@ -20,7 +20,7 @@ public class MemberService {
             return repository.findAll();
         }
 
-        String k = keyword.trim();
+        String k = keyword.strip();
         return repository.findByKeyword(k);
     }
 
