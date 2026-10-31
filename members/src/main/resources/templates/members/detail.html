@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="|${member.name} - 会員詳細|">会員詳細</title>
 </head>
 <body>
-    <h1 th:text="${member.name}">山田</h1>
-    <a th:href="@{/members}">一覧へ戻る</a>
+<h1 th:text="${member.name}">山田</h1>
+<a th:href="@{/members}">一覧へ戻る</a>
 </body>
 </html>
