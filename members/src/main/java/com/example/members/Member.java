@@ -1,3 +1,3 @@
 package com.example.members;
 
-public record Member(Integer id, String name, Integer age) {}
+public record Member(long id, String name, int age) {}

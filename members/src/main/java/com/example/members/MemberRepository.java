@@ -18,4 +18,26 @@ public class MemberRepository {
     public List<Member> findAll(){
         return members;
     }
+
+    public Optional<Member> findById(long id){
+        //SQLに差し替え予定
+        return findByIdDummy(id);
+    }
+
+    public List<Member> findByKeyword(String keyword){
+        //SQLに差し替え予定
+        return findByKeywordDummy(keyword);
+    }
+
+    private List<Member> findByKeywordDummy(String keyword){
+        return members.stream()
+                .filter(member -> member.name().contains(keyword))
+                .toList();
+    }
+
+    private Optional<Member> findByIdDummy(long id){
+        return members.stream()
+                      .filter(member -> member.id() == id)
+                      .findFirst();
+    }
 }

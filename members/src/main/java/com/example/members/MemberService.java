@@ -15,20 +15,16 @@ public class MemberService {
     }
 
     public List<Member> search(String keyword){
-        List<Member> memberList = repository.findAll();
 
         if(keyword == null || keyword.isBlank()){
-            return memberList;
+            return repository.findAll();
         }
+
         String k = keyword.trim();
-        return memberList.stream()
-                .filter(m -> m.name().contains(k))
-                .toList();
+        return repository.findByKeyword(k);
     }
 
     public Optional<Member> findById(long id) {
-        return repository.findAll().stream()
-                .filter(m -> m.id() == id)
-                .findFirst();
+        return repository.findById(id);
     }
 }
